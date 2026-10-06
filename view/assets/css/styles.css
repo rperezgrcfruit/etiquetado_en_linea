@@ -1,0 +1,754 @@
+body {
+  /*background-color: #f0eff0;*/
+  font-family: -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
+   font-size: 14px;
+}
+
+/* Page wrapper - tighter vertical rhythm */
+.wrapp {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Reduce top margin after navbar on process pages */
+.wrapp > .row.p-4,
+.wrapp > .row.px-4 {
+  margin-top: 0.5rem;
+}
+
+/* Navbar - more compact */
+.navbar .container-fluid {
+  padding: 0.375rem 1rem;
+}
+
+/* Spinner/overlay (default hidden) */
+#spinner, #overlay {
+  display: none;
+}
+
+.h1{
+  color: red;
+}
+
+.login-image{
+  margin: auto;
+  width: 160px;
+  height: 160px; 
+ 
+}
+
+.login-image img{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  height: 70vh;
+}
+
+.login-form {
+  /* background-color: #fafafa; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  
+  padding: 20px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.h2-titulo-sesion{
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  color:#0062cc;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Añadí align-items para centrar verticalmente el contenido */
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 10px; /* Añadí un poco de relleno para mejorar la apariencia */
+  background-color: red;
+  color: white; /* Añadí color de texto para mejorar la legibilidad */
+  border-radius: 5px; /* Añadí un poco de borde redondeado para suavizar los bordes */
+}
+
+
+
+.form-group {
+  /* margin-bottom: 10px; */
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-47%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group select{
+  display: block;
+  height: 36px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  /* font-size: 1rem; */
+  box-sizing: border-box;
+}
+
+.form-group select:focus{
+  outline: none;
+  /* box-shadow: 0 0 5px #3786da; */
+  border: 1px solid blue;
+}
+
+.form-group select:hover{
+  box-shadow: 0 0 5px #3786da;
+  border: 1px solid #30567e;
+}
+
+.form-group input {
+  background-color: #fff;
+  height: 32px;
+  display: block;
+  width: 100%;
+  padding: 10px 10px 10px 25px;
+  border-radius: 4px;
+  border: 1px solid #bebebe;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:hover{
+  box-shadow: 0 0 5px #3786da;
+  border: 1px solid #30567e;
+}
+
+.form-group input:focus{
+  outline: none;
+  border: 1px solid blue;
+  box-sizing: border-box;
+  
+}
+
+#btn-login{
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #0062cc;
+}
+
+.icons{
+  position: relative;
+  display: inline-block;
+  transform: translateY(-130%);
+  font-size: 18px;
+  margin-left: 2%;
+}
+
+#spinner {
+  display: none;
+  position: fixed;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Capa semi-transparente */
+  z-index: 9999; /* Por encima de otros elementos */
+  display: none; /* Inicialmente oculto */
+}
+
+/* === Visual improvements for process pages === */
+
+/* Tighter page container — reduce waste between navbar and content */
+.wrapp > .row.p-4,
+.wrapp > .row.px-4,
+.wrapp > .row.mt-2,
+.wrapp > .row.mt-4 {
+  margin-top: 0.25rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Process title — more compact */
+h1.m-0.text-center.text-primary {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Compact tables — less row height, professional look */
+table.table.sortable-table,
+table.table.table-bordered {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+table.sortable-table th,
+table.sortable-table td,
+table.table-bordered th,
+table.table-bordered td {
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+}
+
+/* Table header — professional styling (dark text on light green for readability) */
+table.sortable-table thead.table-success,
+table.table-bordered thead.table-success {
+  background: linear-gradient(135deg, #e8f5e9 0%, #e0f2f1 100%);
+  border-bottom: 2px solid #4caf50;
+}
+table.sortable-table thead.table-success th,
+table.table-bordered thead.table-success th {
+  color: #1a5d33;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border: none;
+  padding: 0.35rem 0.4rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Zebra stripes on tbody — soft alternating row colors */
+.table.sortable-table tbody tr:nth-child(odd),
+.table.table-bordered tbody tr:nth-child(odd) {
+  background-color: #ffffff !important;
+}
+.table.sortable-table tbody tr:nth-child(even),
+.table.table-bordered tbody tr:nth-child(even) {
+  background-color: #e8f5e9 !important;
+}
+.table.sortable-table tbody tr:nth-child(even) td,
+.table.table-bordered tbody tr:nth-child(even) td {
+  background-color: #e8f5e9 !important;
+}
+.table.sortable-table tbody tr:hover,
+.table.table-bordered tbody tr:hover,
+.table.sortable-table tbody tr:hover td,
+.table.table-bordered tbody tr:hover td {
+  background-color: #d1e8d1 !important;
+}
+
+/* Table borders — subtle */
+table.sortable-table.table-bordered,
+table.table-bordered {
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+table.sortable-table.table-bordered th,
+table.table-bordered th,
+table.sortable-table.table-bordered td,
+table.table-bordered td {
+  border: 1px solid #e0e0e0;
+  padding: 0.22rem 0.4rem;
+}
+
+/* Process info card — compact key-value layout with shadow */
+.process-info-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.process-info-card .info-label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.process-info-card .info-value {
+  color: #212529;
+  font-weight: 500;
+}
+
+/* Tab navigation — tighter and more professional */
+.nav-tabs .nav-link {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.375rem 0.375rem 0 0;
+  color: #495057;
+  font-weight: 500;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:hover {
+  color: #207732;
+  border-color: #207732 #207732 #207732 #207732;
+}
+.nav-tabs .nav-link.active {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* Dashboard cards — professional shadow + hover */
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+.card .btn {
+  font-size: 0.8rem;
+}
+
+/* Action buttons — professional styling */
+.btn {
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+  border-width: 1.5px;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Success buttons — professional green gradient */
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #207732 100%);
+  border-color: #207732;
+}
+.btn-success:hover {
+  background: linear-gradient(135deg, #218838 0%, #165a26 100%);
+  border-color: #165a26;
+}
+.btn-success.btn-sm {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+}
+
+/* Outline buttons */
+.btn-outline-success {
+  color: #207732;
+  border-color: #207732;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #207732;
+}
+.btn-outline-danger {
+  color: #b02a37;
+  border-color: #b02a37;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #b02a37;
+}
+
+/* Summary totals — compact */
+.summary-totals {
+  font-size: 0.8rem;
+}
+
+/* Tab content sections — tighter */
+.tab-content.p-2 {
+  padding: 0.3rem 0.5rem !important;
+}
+.tab-content h3 {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+.tab-content h3.text-center {
+  margin-top: 0.2rem;
+}
+
+/* Consolidate N° Proceso row with summary card */
+.row.p-4 .row > .col-md-2.ps-0 {
+  margin-bottom: 0.25rem;
+}
+.form-control[readonly] {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+/*LOGIN */
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+
+  /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Large tablets / small laptops */
+@media (max-width: 1024px) {
+  .wrapp { max-width: 100%; padding: 0 1rem; }
+  
+  .navbar .container-fluid { padding: 0.375rem 1rem; }
+  
+  .navbar .navbar-text { font-size: 0.85rem; }
+  .navbar .navbar-text strong { font-size: 0.9rem; }
+  
+  .navbar .btn { padding: 0.375rem 0.75rem; font-size: 0.875rem; }
+  
+  .login-wrapper { height: auto; min-height: 80vh; padding: 2rem 1rem; }
+  .login-form { max-width: 100%; padding: 1.5rem; }
+  
+  .card { margin-bottom: 1rem; }
+  .card-body { padding: 1rem; }
+  
+  .table-responsive { overflow-x: auto; }
+  
+  table.sortable-table th,
+  table.sortable-table td,
+  table.table-bordered th,
+  table.table-bordered td {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .process-info-card { padding: 0.5rem 1rem; }
+  .process-info-card .info-label { font-size: 0.65rem; }
+  .process-info-card .info-value { font-size: 0.8rem; }
+  
+  .nav-tabs .nav-link { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+  
+  .btn { padding: 0.4rem 0.875rem; font-size: 0.8rem; }
+  .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.7rem; }
+  
+  .modal-dialog { margin: 1rem; max-width: calc(100% - 2rem); }
+  .modal-body { padding: 1rem; }
+  .modal-header { padding: 1rem; }
+  .modal-footer { padding: 1rem; }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .wrapp { padding: 0 0.75rem; }
+  
+  .navbar .container-fluid { 
+    flex-wrap: wrap; 
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .navbar .d-flex.gap-3 { 
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+    width: 100%; 
+    order: 3;
+  }
+  .navbar .navbar-text { 
+    font-size: 0.8rem; 
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+  .navbar .navbar-text strong { font-size: 0.85rem; }
+  
+  .navbar .navbar-brand { order: 1; }
+  .navbar .d-flex.gap-2 { order: 2; }
+  
+  .login-wrapper { 
+    min-height: 100vh; 
+    height: auto; 
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-form { 
+    max-width: 100%; 
+    padding: 1.5rem; 
+    border-radius: 0.5rem;
+  }
+  .login-image { width: 120px; height: 120px; }
+  
+  .card { border-radius: 0.5rem; margin-bottom: 0.75rem; }
+  .card-header { padding: 0.75rem 1rem; }
+  .card-body { padding: 0.75rem; }
+  
+  /* Tables - horizontal scroll */
+  .table-responsive { 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+  }
+  
+  table.sortable-table,
+  table.table-bordered {
+    min-width: 600px;
+    font-size: 0.7rem;
+  }
+  table.sortable-table th,
+  table.sortable-table td,
+  table.table-bordered th,
+  table.table-bordered td {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  
+  .table thead th { position: sticky; top: 0; z-index: 10; }
+  
+  .process-info-card { 
+    padding: 0.5rem; 
+    margin-bottom: 0.5rem;
+  }
+  .process-info-card .info-label { font-size: 0.6rem; }
+  .process-info-card .info-value { font-size: 0.75rem; }
+  
+  .nav-tabs { flex-wrap: wrap; gap: 0.25rem; }
+  .nav-tabs .nav-link { 
+    padding: 0.35rem 0.6rem; 
+    font-size: 0.7rem;
+    border-radius: 0.375rem;
+  }
+  
+  .btn { 
+    padding: 0.45rem 0.75rem; 
+    font-size: 0.8rem;
+    min-height: 44px; /* touch target */
+  }
+  .btn-sm { padding: 0.3rem 0.5rem; font-size: 0.7rem; min-height: 36px; }
+  
+  .form-control,
+  .form-select {
+    font-size: 1rem; /* prevents zoom on iOS */
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .modal-dialog { 
+    margin: 0.5rem; 
+    max-width: calc(100% - 1rem);
+  }
+  .modal-header { padding: 0.75rem 1rem; }
+  .modal-title { font-size: 0.9rem; }
+  .modal-body { padding: 1rem; }
+  .modal-footer { 
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+    padding: 0.75rem;
+  }
+  .modal-footer .btn { width: 100%; }
+  .modal-footer .btn + .btn { margin-top: 0.5rem; }
+  
+  /* Process pages specific */
+  .wrapp > .row.p-4,
+  .wrapp > .row.px-4,
+  .wrapp > .row.mt-2,
+  .wrapp > .row.mt-4 {
+    margin-top: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  h1.m-0.text-center.text-primary { font-size: 1.1rem; }
+  
+  .sidebar-action { height: auto; padding: 0.75rem; }
+  .sidebar-action .bi { font-size: 1.5rem; }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .wrapp { padding: 0 0.5rem; }
+  
+  .navbar .container-fluid { padding: 0.5rem; }
+  .navbar .d-flex.gap-3 { gap: 0.375rem; }
+  .navbar .navbar-text { font-size: 0.7rem; min-width: 100px; }
+  .navbar .navbar-text strong { font-size: 0.75rem; }
+  .navbar .fw-bold.fs-5 { font-size: 1rem !important; }
+  .navbar .btn { padding: 0.35rem 0.5rem; font-size: 0.7rem; }
+  
+  .login-wrapper { padding: 1rem 0.5rem; }
+  .login-form { padding: 1.25rem; }
+  .login-image { width: 100px; height: 100px; }
+  .h2-titulo-sesion { font-size: 1.1rem; }
+  
+  .form-control,
+  .form-select { padding: 0.6rem 0.75rem; font-size: 1rem; }
+  
+  .card-body { padding: 0.5rem; }
+  
+  table.sortable-table,
+  table.table-bordered { min-width: 500px; font-size: 0.6rem; }
+  table.sortable-table th,
+  table.sortable-table td,
+  table.table-bordered th,
+  table.table-bordered td { padding: 0.2rem 0.3rem; }
+  
+  .btn { padding: 0.5rem 0.75rem; font-size: 0.75rem; min-height: 44px; }
+  .btn-sm { padding: 0.35rem 0.5rem; font-size: 0.65rem; min-height: 36px; }
+  
+  .form-control,
+  .form-select { padding: 0.6rem 0.75rem; }
+  
+  .modal-dialog { margin: 0.25rem; max-width: calc(100% - 0.5rem); }
+  .modal-header { padding: 0.75rem; }
+  .modal-title { font-size: 0.85rem; }
+  .modal-body { padding: 0.75rem; }
+  .modal-footer { padding: 0.75rem; }
+  
+  .sidebar-action { padding: 0.6rem; }
+  .sidebar-action .bi { font-size: 1.25rem; }
+  .sidebar-action { font-size: 0.65rem; }
+  
+  /* Touch-friendly spacing */
+  .btn, .form-control, .form-select, .nav-link, .dropdown-item {
+    min-height: 44px;
+  }
+  
+  /* Stack modal footer buttons */
+  .modal-footer { flex-direction: column; }
+  .modal-footer .btn { width: 100%; margin-bottom: 0.5rem; }
+  .modal-footer .btn:last-child { margin-bottom: 0; }
+}
+
+/* Landscape phones */
+@media (max-width: 640px) and (orientation: landscape) {
+  .login-wrapper { min-height: auto; padding: 2rem 1rem; }
+  .login-form { max-width: 400px; }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .wrapp { max-width: 1400px; }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .login-image img { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* Print styles */
+@media print {
+  .navbar, .btn, .sidebar-action, #spinner, #overlay, .modal, .overlay { display: none !important; }
+  .wrapp { max-width: 100%; padding: 0; }
+  .card { box-shadow: none; border: 1px solid #ddd; }
+  .table { font-size: 0.7rem; }
+  .card { break-inside: avoid; }
+}
+
+  

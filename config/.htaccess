@@ -1,0 +1,2 @@
+# Block direct HTTP access to config files (contains DB credentials + secrets)
+Require all denied

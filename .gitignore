@@ -1,0 +1,12 @@
+# Secrets — NEVER commit
+.env
+.env.local
+
+# Composer
+vendor/
+composer.lock
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store

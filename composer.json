@@ -1,0 +1,10 @@
+{
+    "require": {
+        "dompdf/dompdf": "^3.1",
+        "vlucas/phpdotenv": "^5.5",
+        "phpmailer/phpmailer": "^7.1"
+    },
+    "autoload": {
+        "classmap": ["config/", "repositories/"]
+    }
+}

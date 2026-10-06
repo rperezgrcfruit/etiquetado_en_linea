@@ -1,0 +1,15 @@
+# Security: Block direct access to .env and other sensitive files
+<FilesMatch "^\.(env|htaccess|git|svn)">
+    Require all denied
+</FilesMatch>
+
+# Also block from config/ and repositories/ directories
+<FilesMatch "(^config/|^repositories/)">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
